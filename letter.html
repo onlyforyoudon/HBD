@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Surprise For You ✨</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8e1f4, #e0c3f7, #c2e6ff);
+            background-size: 400% 400%;
+            animation: gradientBackground 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 3s forwards 0.5s;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #6a4c93;
+        }
+
+        .letter-container {
+            background: rgba(255,255,255,0.7);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .letter {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .surprise-button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .surprise-button {
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #a18cd1);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .surprise-button:hover { transform: scale(1.05); }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 2px solid #6a4c93;
+            color: #6a4c93;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #6a4c93;
+            color: white;
+        }
+
+        .floating-element {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.7;
+            z-index: 1;
+            animation-name: float;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        .music-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .music-controls i { color: #6a4c93; font-size: 24px; }
+
+        @keyframes gradientBackground {
+            0% { background-position:0% 50%; }
+            50% { background-position:100% 50%; }
+            100% { background-position:0% 50%; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-20px) rotate(5deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>For My Bestie ❤️</h1>
+        </header>
+
+        <div class="letter-container">
+            <div class="letter" id="typed-text"></div>
+        </div>
+
+        <div class="surprise-button-container">
+            <button class="surprise-button" id="surprise-button">Click for a Surprise! 🎁</button>
+        </div>
+
+        <div class="navigation">
+            <a href="cake.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Birthday Cake
+            </a>
+        </div>
+    </div>
+
+    <!-- <div class="music-controls" id="music-toggle">
+        <i class="fas fa-volume-mute" id="music-icon"></i>
+    </div> -->
+
+    <!-- <audio id="background-music" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=relaxing-145038.mp3" type="audio/mpeg">
+    </audio> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Typed.js
+            const letterContent = "My dear Bestie❤️,\n\nAs I sit here thinking about all our memories together🫂, I can't help but smile🥰. From our late-night talks to our spontaneous adventures😍, you've filled my life🫶 with so much joy and laughter🤗. You've been my shoulder to cry on, and my biggest supporter😍.\n\nOn your special day🌹, I want you to know how grateful I am to have you in my life🤌💕. You make every day brighter just by being you - kind, funny, and incredibly thoughtful🫂.\n\nHappy Birthday to my favorite person in the world😘! Here's to many more years of friendship🫶, laughter, and creating memories together🫂🫶.\n\nWith all my love😘,\n- Your Careless Bestie❤️";
+
+            new Typed('#typed-text', {
+                strings: [letterContent],
+                typeSpeed: 30,
+                showCursor: true,
+                cursorChar: '|'
+            });
+
+            // Surprise button click -> navigate to video.html
+            document.getElementById('surprise-button').addEventListener('click', function() {
+                window.location.href = "video.html";
+            });
+
+            // Music toggle
+            // const musicToggle = document.getElementById('music-toggle');
+            // const musicIcon = document.getElementById('music-icon');
+            // const backgroundMusic = document.getElementById('background-music');
+            // let isMusicPlaying = false;
+
+            // musicToggle.addEventListener('click', function() {
+            //     if(isMusicPlaying){
+            //         backgroundMusic.pause();
+            //         musicIcon.classList.remove('fa-volume-up');
+            //         musicIcon.classList.add('fa-volume-mute');
+            //     } else {
+            //         backgroundMusic.play().catch(e=>console.log(e));
+            //         musicIcon.classList.remove('fa-volume-mute');
+            //         musicIcon.classList.add('fa-volume-up');
+            //     }
+            //     isMusicPlaying = !isMusicPlaying;
+            // });
+
+            // Floating elements
+            const floatingElements = [
+                { type: 'heart', color: '#ff6b8a', size: '20px' },
+                { type: 'heart', color: '#f48fb1', size: '25px' },
+                { type: 'star', color: '#ffd54f', size: '25px' },
+                { type: 'star', color: '#ffecb3', size: '15px' }
+            ];
+
+            floatingElements.forEach((el, index) => {
+                const floating = document.createElement('div');
+                floating.classList.add('floating-element');
+                floating.innerHTML = el.type === 'heart' ? '<i class="fas fa-heart"></i>' : '<i class="fas fa-star"></i>';
+                floating.style.color = el.color;
+                floating.style.fontSize = el.size;
+                floating.style.left = `${Math.random() * window.innerWidth}px`;
+                floating.style.top = `${Math.random() * window.innerHeight}px`;
+                floating.style.animationDuration = `${5 + Math.random()*5}s`;
+                floating.style.animationDelay = `${Math.random()*5}s`;
+                document.body.appendChild(floating);
+            });
+        });
+    </script>
+</body>
+</html>
